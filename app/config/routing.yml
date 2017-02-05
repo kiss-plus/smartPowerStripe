@@ -1,0 +1,4 @@
+smart_power_stripe:
+    resource: "@SmartPowerStripeBundle/Resources/config/routing.yml"
+    prefix:   /
+

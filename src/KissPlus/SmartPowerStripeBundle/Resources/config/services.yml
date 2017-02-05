@@ -1,0 +1,4 @@
+services:
+#    smart_power_stripe.example:
+#        class: KissPlus\SmartPowerStripeBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

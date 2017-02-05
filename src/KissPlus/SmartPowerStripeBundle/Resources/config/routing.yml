@@ -1,0 +1,8 @@
+sockets:
+    type:     rest
+    defaults: { _format: json }
+    resource: KissPlus\SmartPowerStripeBundle\Controller\PowerSocketsController
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /doc
