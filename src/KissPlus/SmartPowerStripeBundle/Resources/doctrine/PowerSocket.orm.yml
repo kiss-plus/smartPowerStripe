@@ -16,3 +16,7 @@ KissPlus\SmartPowerStripeBundle\Entity\PowerSocket:
             column: turned_on
             nullable: false
             default: false
+        number:
+            type: integer
+            column: number
+            nullable: false
