@@ -2,10 +2,12 @@ pipeline {
     agent any
     stages {
         stage('Build'){
-            sh 'php -r "copy(\"https://getcomposer.org/installer\", \"composer-setup.php\");"'
-            sh 'php composer-setup.php --install-dir=bin --filename=composer'
-            sh 'php -r "unlink(\"composer-setup.php\");"'
-            sh 'bin/composer install'
+            steps {
+                sh 'php -r "copy(\"https://getcomposer.org/installer\", \"composer-setup.php\");"'
+                sh 'php composer-setup.php --install-dir=bin --filename=composer'
+                sh 'php -r "unlink(\"composer-setup.php\");"'
+                sh 'bin/composer install'
+            }
         }
         stage('Test'){
             steps {
