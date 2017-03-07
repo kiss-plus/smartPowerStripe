@@ -4,7 +4,7 @@ pipeline {
         stage('Build'){
             steps {
                 sh 'build/composer-install.sh'
-                sh 'bin/composer install --env=dev'
+                sh 'bin/composer install'
             }
         }
         stage('Test'){
