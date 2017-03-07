@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build'){
             steps {
-                sh 'build/composerInstall'
+                sh 'build/composer-install.sh'
                 sh 'composer install --env=dev'
             }
         }
