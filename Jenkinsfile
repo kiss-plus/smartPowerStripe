@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test'){
             steps {
-                sh 'phpunit -c phpunit.xml.dist'
+                sh 'vendor/bin/phpunit -c phpunit.xml.dist'
             }
         }
     }
