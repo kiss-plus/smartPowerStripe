@@ -13,8 +13,8 @@ pipeline {
             }
         }
 
-        if (env.BRANCH_NAME == 'master') {
-            stage('Deploy on prod'){
+        stage('Deploy on prod'){
+            if (env.BRANCH_NAME == 'master') {
                 steps {
                     echo "deploying on production server"
                 }
