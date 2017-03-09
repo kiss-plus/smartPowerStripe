@@ -2,6 +2,7 @@
 namespace KissPlus\SmartPowerStripeBundle\Tests\Integration\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class PowerSocketsControllerTest extends WebTestCase
 {
@@ -15,5 +16,12 @@ class PowerSocketsControllerTest extends WebTestCase
         $this->assertNotEmpty(
             $content
         );
+    }
+
+    public function testGetNotFound()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/not-exists');
+        $this->assertSame(Response::HTTP_NOT_FOUND, $client->getResponse()->getStatusCode());
     }
 }
