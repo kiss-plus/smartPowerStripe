@@ -1,4 +1,7 @@
 node {
+    stage('Git checkout') {
+        checkout scm
+    }
     stage('Build'){
         sh 'build/composer-install.sh'
         sh 'bin/composer install'
