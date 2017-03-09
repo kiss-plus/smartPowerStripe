@@ -22,6 +22,6 @@ class PowerSocketsControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/not-exists');
-        $this->assertSame(Response::HTTP_NOT_FOUND, $client->getResponse()->getStatusCode());
+        $this->assertSame(Response::HTTP_NOT_FOUND, $client->getResponse()->getStatusCode(), "this is just a test");
     }
 }
