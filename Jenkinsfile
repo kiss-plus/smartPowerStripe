@@ -13,12 +13,13 @@ pipeline {
             }
         }
 
-        when {
-            expression {env.BRANCH_NAME == "master" }
-            stage ('Deploy'){
-                steps {
-                    echo "deploying ..."
-                }
+        stage ('Deploy on prod'){
+            echo "Deployment script is executed only for master branch"
+            when {
+                expression {env.BRANCH_NAME == "master" }
+            }
+            steps {
+                echo "deploying ..."
             }
         }
     }
