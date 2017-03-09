@@ -13,12 +13,12 @@ pipeline {
             }
         }
 
-        stage ('Deploy on prod'){
-            when {
-                expression {env.BRANCH_NAME == "master" }
-            }
-            steps {
-                echo "deploying ..."
+        when {
+            expression {env.BRANCH_NAME == "master" }
+            stage ('Deploy'){
+                steps {
+                    echo "deploying ..."
+                }
             }
         }
     }
