@@ -12,7 +12,8 @@
   file:
     path: '{{ item }}'
     state: directory
-    owner: vagrant
+    owner: www-data
+    group: www-data
   with_items:
     - /var/www/html
 

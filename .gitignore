@@ -15,4 +15,4 @@
 /web/bundles/
 .idea
 .vagrant
-provision/playbook.retry
+*.retry
