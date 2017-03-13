@@ -1,0 +1,6 @@
+port: 3306
+bind_address: 0.0.0.0
+
+db_name: smartenergy
+db_user: smartpower
+db_pass: smartpower
