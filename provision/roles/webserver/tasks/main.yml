@@ -1,0 +1,58 @@
+- name: Add APT dotdeb repo key
+  apt_key:
+    url: "https://www.dotdeb.org/dotdeb.gpg"
+    state: present
+- name: Add APT dotdeb repo to sources list
+  apt_repository:
+    repo: "deb http://packages.dotdeb.org jessie all"
+    state: present
+    update_cache: yes
+
+- name: Make sure required directories exists
+  file:
+    path: '{{ item }}'
+    state: directory
+    owner: vagrant
+  with_items:
+    - /var/www/html
+
+- name: Install apt packages
+  apt:
+    pkg: "{{ item }}"
+    state: present
+  with_items:
+    - apache2
+    - php7.0
+    - php7.0-curl
+    - php7.0-apcu
+    - php7.0-opcache
+    - php7.0-gd
+    - php7.0-mbstring
+    - php7.0-mcrypt
+    - php7.0-mysql
+    - php7.0-soap
+    - php7.0-xdebug
+    - php7.0-xml
+    - php7.0-zip
+    - php7.0-intl
+    - php7.0-posix
+    - libapache2-mod-php7.0
+  notify:
+    - Restart Apache
+
+- name: Setup virtual host
+  template:
+    src: vhost.conf.j2
+    dest: /etc/apache2/sites-available/vhost.conf
+  notify:
+    - Restart Apache
+
+- name: Disable default site
+  command: a2dissite 000-default
+  notify:
+    - Restart Apache
+
+- name: Enable site
+  command: a2ensite vhost
+  notify:
+    - Restart Apache

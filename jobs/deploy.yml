@@ -1,0 +1,11 @@
+- name: Deploy application to develop server
+  hosts: develop
+  become: true
+  become_user: vagrant
+  vars:
+    ansistrano_deploy_from: "{{ playbook_dir }}/.."
+    ansistrano_deploy_to: "/var/www/html"
+    ansistrano_keep_releases: 3
+    ansistrano_deploy_via: rsync
+  roles:
+    - { role: deploy }
