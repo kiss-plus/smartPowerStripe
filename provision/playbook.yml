@@ -1,0 +1,7 @@
+- hosts: develop
+  become: true
+  become_user: root
+  roles:
+    - common
+    - mysql
+    - webserver
