@@ -9,6 +9,7 @@
     ansistrano_rsync_set_remote_user: yes
     ansistrano_allow_anonymous_stats: yes
     ansistrano_ensure_shared_paths_exist: no
-    ansistrano_after_update_code_tasks_file: "custom/after_update_code.yml"
+    ansistrano_after_update_code_tasks_file: "custom/after_update.yml"
+    ansistrano_before_symlink_tasks_file: "custom/before_symlink.yml"
   roles:
     - { role: deploy }

@@ -1,0 +1,6 @@
+---
+db_host: localhost
+db_port: 3306
+db_name: smartenergy
+db_username: smartpower
+db_password: smartpower
