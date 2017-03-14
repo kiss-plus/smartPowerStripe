@@ -3,7 +3,7 @@ node {
         checkout scm
     }
     stage('Build'){
-        sh 'jobs/composer-install.sh'
+        sh 'jobs/install-composer.sh'
         sh 'bin/composer install'
     }
     stage('Test'){
