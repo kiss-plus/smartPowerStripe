@@ -14,7 +14,7 @@ node {
             ansiblePlaybook(
                 playbook: 'jobs/deploy.yml',
                 inventory: 'jobs/host',
-                limit: 'develop'
+                limit: 'develop',
                 colorized: true,
             )
         }
@@ -22,7 +22,7 @@ node {
             ansiblePlaybook(
                 playbook: 'jobs/deploy.yml',
                 inventory: 'jobs/host',
-                limit: 'test'
+                limit: 'test',
                 colorized: true,
             )
         }
@@ -33,7 +33,7 @@ node {
                 ansiblePlaybook(
                     playbook: 'jobs/deploy.yml',
                     inventory: 'jobs/host',
-                    limit: 'prod'
+                    limit: 'prod',
                     colorized: true,
                 )
             }
