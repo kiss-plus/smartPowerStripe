@@ -13,7 +13,7 @@ node {
         stage ('Deploy on develop'){
             ansiblePlaybook(
                 playbook: 'jobs/deploy.yml',
-                inventory: 'jobs/host',
+                inventory: 'jobs/hosts',
                 limit: 'develop',
                 colorized: true,
             )
@@ -21,7 +21,7 @@ node {
         stage ('Deploy on test'){
             ansiblePlaybook(
                 playbook: 'jobs/deploy.yml',
-                inventory: 'jobs/host',
+                inventory: 'jobs/hosts',
                 limit: 'test',
                 colorized: true,
             )
@@ -32,7 +32,7 @@ node {
             stage ('Deploy on prod'){
                 ansiblePlaybook(
                     playbook: 'jobs/deploy.yml',
-                    inventory: 'jobs/host',
+                    inventory: 'jobs/hosts',
                     limit: 'prod',
                     colorized: true,
                 )
