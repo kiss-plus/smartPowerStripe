@@ -1,4 +1,13 @@
 node {
+    properties([
+          [
+            $class: 'jenkins.model.BuildDiscarderProperty',
+            strategy: [
+              $class: 'LogRotator',
+              numToKeepStr: '5'
+              ]
+          ]
+        ])
     stage('Git checkout') {
         checkout scm
     }
