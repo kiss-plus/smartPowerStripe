@@ -20,20 +20,7 @@ node {
     }
     if (env.BRANCH_NAME == 'develop') {
         stage ('Deploy on develop'){
-            ansiblePlaybook(
-                playbook: 'jobs/deploy.yml',
-                inventory: 'jobs/hosts',
-                limit: 'develop',
-                colorized: true,
-            )
-        }
-        stage ('Deploy on test'){
-            ansiblePlaybook(
-                playbook: 'jobs/deploy.yml',
-                inventory: 'jobs/hosts',
-                limit: 'test',
-                colorized: true,
-            )
+            sh 'ansible-playbook -i jobs/hosts --limit=develop jobs/deploy.yml'
         }
     }
 
